@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz App</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <meta charset="UTF-8"/>
+    <title>Wybierz Quiz</title>
 </head>
 <body>
-    <div id="quiz-container">
-        <h1>Quiz</h1>
-        <div id="question-container">
-            <!-- Pytanie i odpowiedzi będą ładowane tutaj -->
-        </div>
-        <button id="submit-answer" disabled>Submit</button>
-        <p id="score"></p>
-    </div>
-    <script src="/static/quiz.js"></script>
+<h1>Wybierz quiz</h1>
+<ul id="quiz-list"></ul>
+
+<script>
+    async function fetchQuizzes() {
+        const res = await fetch('http://127.0.0.1:5000/quizzes');
+        const quizzes = await res.json();
+        const ul = document.getElementById('quiz-list');
+
+        quizzes.forEach(quiz => {
+            const li = document.createElement('li');
+            const btn = document.createElement('button');
+            btn.textContent = quiz.name;
+            btn.onclick = () => {
+                window.location.href = `quiz.html?quiz_id=${quiz.id}`;
+            };
+            li.appendChild(btn);
+            ul.appendChild(li);
+        });
+    }
+
+
+
+    fetchQuizzes();
+
+    // Jeśli to jest quiz.html, to możesz wywołać startQuiz() od razu:
+    if (window.location.pathname.endsWith('quiz.html')) {
+        startQuiz();
+    }
+</script>
+
 </body>
 </html>
