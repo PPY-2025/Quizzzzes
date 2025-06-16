@@ -2,17 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>Wybierz Quiz</title>
+    <title>Quizzzzes</title>
 </head>
 <body>
-<h1>Wybierz quiz</h1>
+<h1>Quizzzzes</h1>
+
+<!-- 🔍 Search bar -->
+<input type="text" id="search-bar" placeholder="Find quizz..." />
+
+<!-- 📋 List of quizzes -->
 <ul id="quiz-list"></ul>
 
 <script>
+    let allQuizzes = []; // store all quizzes globally
+
     async function fetchQuizzes() {
         const res = await fetch('http://127.0.0.1:5000/quizzes');
-        const quizzes = await res.json();
+        allQuizzes = await res.json(); // save for filtering
+        renderQuizList(allQuizzes);
+    }
+
+    function renderQuizList(quizzes) {
         const ul = document.getElementById('quiz-list');
+        ul.innerHTML = ''; // clear previous list
 
         quizzes.forEach(quiz => {
             const li = document.createElement('li');
@@ -26,15 +38,21 @@
         });
     }
 
-
+    // 🔍 Filter quizzes when typing
+    document.getElementById('search-bar').addEventListener('input', (e) => {
+        const search = e.target.value.toLowerCase();
+        const filtered = allQuizzes.filter(quiz =>
+            quiz.name.toLowerCase().includes(search)
+        );
+        renderQuizList(filtered);
+    });
 
     fetchQuizzes();
 
-    // Jeśli to jest quiz.html, to możesz wywołać startQuiz() od razu:
+    // Optional if quiz.html shares this script
     if (window.location.pathname.endsWith('quiz.html')) {
         startQuiz();
     }
 </script>
-
 </body>
 </html>

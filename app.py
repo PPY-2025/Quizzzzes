@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from backend.models import db
-from backend.db_service import dbService
+from backend.services import dbService
 import os
 
 def create_app():

@@ -1,6 +1,6 @@
 from app import create_app
 from backend.models import db
-from backend.db_service import dbService
+from backend.services import dbService
 
 # Create the Flask app
 app = create_app()
