@@ -1,18 +1,97 @@
+/* General body styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    color: #2c3e50;
+    margin: 0;
+    padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4;
 }
 
+/* Quiz container */
 #quiz-container {
-    text-align: center;
     background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    max-width: 450px;
+    width: 90%;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(41, 128, 185, 0.15);
+    text-align: center;
 }
+
+/* Title */
+#quiz-container h1 {
+    color: #2980b9;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* Question container */
+#question-container h3 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #34495e;
+}
+
+/* Option buttons */
+#question-container button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    background-color: #2980b9;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(41, 128, 185, 0.4);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#question-container button:hover {
+    background-color: #3498db;
+    box-shadow: 0 5px 12px rgba(52, 152, 219, 0.6);
+}
+
+#question-container button:focus {
+    outline: none;
+    box-shadow: 0 0 10px 3px #2980b9;
+}
+
+/* Submit button */
+#submit-answer {
+    margin-top: 25px;
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    background-color: #2980b9;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(41, 128, 185, 0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#submit-answer:hover:enabled {
+    background-color: #3498db;
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.7);
+}
+
+#submit-answer:disabled {
+    background-color: #a3c4e8;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Score display */
+#score {
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #2980b9;
+}
+

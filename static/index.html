@@ -3,6 +3,74 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Quizzzzes</title>
+    <style>
+        /* Reset some default styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            margin: 20px;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+        #search-bar {
+            display: block;
+            margin: 0 auto 30px auto;
+            padding: 10px 15px;
+            width: 300px;
+            font-size: 16px;
+            border: 2px solid #2980b9;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        #search-bar:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+        }
+        #quiz-list {
+            list-style: none;
+            max-width: 320px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        #quiz-list li {
+            margin-bottom: 15px;
+        }
+        #quiz-list button {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            background-color: #2980b9;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 3px 6px rgba(41, 128, 185, 0.4);
+        }
+        #quiz-list button:hover {
+            background-color: #3498db;
+            box-shadow: 0 5px 10px rgba(52, 152, 219, 0.6);
+        }
+        #quiz-list button:focus {
+            outline: none;
+            box-shadow: 0 0 8px 2px #2980b9;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 400px) {
+            #search-bar, #quiz-list {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
 <body>
 <h1>Quizzzzes</h1>

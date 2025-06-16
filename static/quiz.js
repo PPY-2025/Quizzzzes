@@ -70,6 +70,11 @@ document.getElementById('submit-answer').onclick = async () => {
             window.location.href = '/';
         };
 
+        retryBtn.classList.add('retry-btn');
+
+        goHomeBtn.classList.add('home-btn');
+
+
         container.appendChild(retryBtn);
         container.appendChild(goHomeBtn);
     } else {
